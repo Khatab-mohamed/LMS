@@ -1,1 +1,13 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+      <button mat-icon-button>
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div><a routerLink="/">Loan MS</a></div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+          <li><a routerLink="/loan"><mat-icon>book_online</mat-icon>New Request</a></li>
+      </ul>
+  </div>
+</mat-toolbar>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LoanService } from '../loan.service';
 
 @Component({
   selector: 'app-new-loan',
@@ -8,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class NewLoanComponent implements OnInit {
   requestForm;
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private loanService: LoanService ) {
     this.requestForm = fb.group({
       employeeId: ['',  Validators.required],
       salary: '',
@@ -20,6 +21,8 @@ export class NewLoanComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(){}
+  onSubmit(){
+    this.loanService.calculate(this.requestForm.value);
+  }
 
 }

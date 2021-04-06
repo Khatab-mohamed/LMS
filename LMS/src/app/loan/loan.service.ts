@@ -18,9 +18,10 @@ export class LoanService {
     while (newLoan.tenure >= result.length + 1){
       month ++;
       if (month > 12) {
-        month = month % 12;
-        year += Math.floor(date / 12 );
+        month = 1;
+       year ++;
       }
+
       const item = {
         month,
         amount,

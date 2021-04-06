@@ -1,1 +1,32 @@
-<p>new-loan works!</p>
+<section class="loan-request-form">
+  <form [formGroup]="requestForm" #f (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="center center"
+    fxLayoutGap="10px">
+    <mat-form-field hintLabel="Emplyee Unique Id">
+      <input type="text" matInput placeholder="Employee Id" formControlName="employeeId">
+      <mat-error *ngIf="requestForm.get('employeeId').touched && requestForm.get('employeeId').invalid">Employee ID
+        field is required.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Monthly salary">
+      <input type="number" matInput placeholder="Salary" formControlName="salary">
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Amount of loan money">
+      <input type="number" matInput placeholder="Loan Amount" formControlName="amount">
+    </mat-form-field>
+
+    <mat-form-field hintLabel="by monthes">
+      <input type="number" matInput placeholder="Tenure by monthes" formControlName="tenure">
+    </mat-form-field>
+
+
+    <mat-form-field >
+      <mat-label>request Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="requestDate" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+  </form>
+</section>

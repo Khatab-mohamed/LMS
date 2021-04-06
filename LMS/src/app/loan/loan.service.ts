@@ -12,7 +12,8 @@ export class LoanService {
     let year = newLoan.requestDate.getFullYear();
     let month = newLoan.requestDate.getMonth() + 1;
 
-    const amount = (newLoan.amount / newLoan.tenure).toFixed();
+    let amount =Number (newLoan.amount / newLoan.tenure).toFixed(5);
+
     const date = month + newLoan.tenure ;
 
     while (newLoan.tenure >= result.length + 1){

@@ -13,8 +13,8 @@ export class NewLoanComponent implements OnInit {
     this.requestForm = fb.group({
       employeeId: ['',  Validators.required],
       salary: '',
-      amount: '',
-      tenure: '',
+      amount: ['', Validators.required],
+      tenure: ['', Validators.required],
       requestDate: ['', Validators.required]
     });
   }
